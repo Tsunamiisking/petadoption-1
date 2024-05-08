@@ -1,5 +1,5 @@
 {% extends "petadoption1/layout.html"%}
-
+{% load static %}
 {% block body %}
 
     <!-- Hero Section -->
@@ -15,9 +15,77 @@
 
     <!-- About Us section -->
     <section class="about-us">
-        <div class="container d-flex align-items-center justify-content-center fs-1 text-white flex-column">
-            
+        <div class="container text-center">
+            <h1>About <span>Petpal</span></h1>
+            <p>
+                Our platform is designed to ensure the well-being of every pet, with comprehensive information provided by reputable breeders and shelters. From playful puppies and cuddly kittens to majestic birds and exotic reptiles, there's something for every animal lover here.
+
+                Join us in our mission to promote responsible pet ownership and create lasting bonds between humans and animals. Start your journey with us today and experience the joy of welcoming a new companion into your life!
+            </p>
+            <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{% static 'petadoption1/carousel3.jpg'%}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Pets are adorable </h5>
+                  <p>Reunite with mans best friend</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'petadoption1/carousel2.jpg'%}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Connect with animals</h5>
+                  <p>A chance to conect with animals that help you mentally.</p>
+                </div> 
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'petadoption1/aboutuspet.jpg'%}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>A Roomate</h5>
+                  <p>Share your personal space with your personal pet</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
     </section>
     <!-- End About Us section -->
+
+    <!-- Featured Posts section -->
+    <section class="featured">
+        <h1>Featured <span>Pets</span></h1>
+        <div class="container text-center">
+            <div class="row justify-content-between">
+                <div class="col">
+                    <img width="400px" src="{% static 'petadoption1/aboutuspet.jpg'%}" alt="">
+                </div>
+                <div class="col">
+                    <img width="400px" src="{% static 'petadoption1/aboutuspet.jpg'%}" alt="">
+                </div>
+                <div class="col">
+                    <img width="400px" src="{% static 'petadoption1/aboutuspet.jpg'%}" alt="">
+                </div>
+                <div class="col">
+                    <img width="400px" src="{% static 'petadoption1/aboutuspet.jpg'%}" alt="">
+                </div>
+        </div>
+    </section>
+    <!-- End of featured post section -->
+
+
+    <!-- Meet our team section -->
+    <!--  -->
 {%endblock%}

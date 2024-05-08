@@ -1,3 +1,7 @@
+span{
+    color: #8ba5f3;
+}
+
 .navbar{
     background-color: #fff;
     height: 90px;
@@ -66,6 +70,7 @@
     background: url(bg1.jpg) no-repeat center;
     background-size: cover;
     width: 100%;
+
 }
 
 .hero-section::before{
@@ -163,8 +168,44 @@
     outline: none;
 }
 
+.about-us {
+    height: 170vh;
+
+}
+.about-us .col{
+    margin: 20px 0;
+
+}
+
+.featured {
+    height: 100vh;
+    padding: 20px 0;
+    background-color: #515ec4;
+}
+
+.featured .col{
+    margin: 20px 0;
+}
+.featured h1, .featured p{
+    text-align: center;
+}
+
 @media (max-width: 991px) {
     .categories {
         display: none;
     }
+    .about-us {
+        height: 120vh;
+    }
+    
+    .featured {
+        height: 180vh;
+    }
+
+}
+
+.about-us h1, .about-us p {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
 }
