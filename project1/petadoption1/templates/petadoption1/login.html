@@ -1,0 +1,52 @@
+{% extends 'petadoption1/layout.html' %}
+{% load static %}
+
+{% block body %}
+<section class="wrapper">
+    <div class="container main">
+        <div class="row">
+            <div class="col-md-6 side-image">
+
+                <h3 class="text">Welcome Back!</h3>
+            </div>
+            <div class="col-md-6 right">
+                <form>
+                    <div class="input-box">
+                        <header>Login</header>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" class="input" name="username" id="username">
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="input" name="password" id="password">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="submit" class="submit" value="Sign Up">
+                    </div>
+
+                    <div class="login">
+                        <span>Create an account <a href="{% url 'signup' %}">Here!</a></span>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+<!-- 
+<div class="col">
+    <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+  </div>
+  <div class="col">
+    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+  </div>
+  <div class="col">
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Email" aria-label="First name">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+    </div> -->

@@ -1,0 +1,57 @@
+{% extends 'petadoption1/layout.html' %}
+{% load static %}
+
+{% block body %}
+
+{% if message %}
+    <div class="push alert alert-warning alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
+
+<section class="wrapper">
+    <div class="container main">
+        <div class="row">
+            <div class="col-md-6 side-image">
+
+                <h3 class="text">Welcome Pet Lover!</h3>
+            </div>
+            <div class="col-md-6 right">
+                <form action="{% url 'signup' %}" method="post">
+                    {% csrf_token %}
+                    <div class="input-box">
+                        <header>Create account</header>
+                    </div>
+                    <div class="input-field">
+                        <input type="email" class="input" name="email" id="email">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" class="input" name="username" id="username">
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="input" name="password" id="password">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="input" name="confirmation" id="confirmation">
+                        <label for="confirmation"> Confirm Password</label>
+                    </div>
+                    <div class="input-field">
+                        <span class="pass-missmatch"></span>
+                    </div>
+                    <div class="input-field">
+                        <input id="submit-button" type="submit" class="submit" value="Sign Up">
+                    </div>
+
+                    <div class="login">
+                        <span>Already have an account? <a href="{% url 'login' %}">Login</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
