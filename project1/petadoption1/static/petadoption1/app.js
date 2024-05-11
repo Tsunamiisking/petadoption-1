@@ -1,14 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector("#submit-button").disabled = true;
-    document.querySelector("#confirmation").addEventListener('keyup', () => {
+  let submitButton = document.querySelector("#submit-button");
+  if (submitButton) {
+    submitButton.disabled = true;
+  }
+  
+  let confirmationInput = document.querySelector("#confirmation");
+  if (confirmationInput) {
+    confirmationInput.addEventListener('keyup', () => {
        let password = document.querySelector("#password").value;
        let pwdconfirm = document.querySelector("#confirmation").value;
+       let passMismatch = document.querySelector(".pass-missmatch");
        if (pwdconfirm !== password) {
-         document.querySelector("#submit-button").disabled = true;
-         document.querySelector(".pass-missmatch").textContent = "Password Mismatch";
-       }else {
-         document.querySelector("#submit-button").disabled = false;
-         document.querySelector(".pass-missmatch").textContent = "";
+         submitButton.disabled = true;
+         passMismatch.textContent = "Password Mismatch";
+       } else {
+         submitButton.disabled = false;
+         passMismatch.textContent = "";
        }
     });
- });
+  }
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll(".nav-item").forEach((item) => {
+    item.addEventListener("click", () => {
+      item.classList.add("active");
+    });
+  });
+});

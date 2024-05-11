@@ -1,0 +1,84 @@
+{% extends "petadoption1/layout.html"%}
+{% load static %}
+{% block body %}
+
+<!-- Space -->
+<section class="space">
+    
+</section>
+<!-- Space End -->
+
+<!-- Create pet form section -->
+<section class="container marketplace-form">
+    <div class="">
+        <header>Add pet for sale</header>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form action="{% url 'marketplace' %}" method="post">
+                {% csrf_token %}
+                <div class="input-field">
+                    <input type="text" class="input" name="petname" id="petname">
+                    <label for="petname">Pet Name</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" class="input" name="breed" id="breed">
+                    <label for="breed">Breed</label>
+                </div>
+                <div class="input-field">
+                    <input type="url" class="input" name="url" id="url">
+                    <label for="url">Image Url</label>
+                </div>
+                <div class="input-field">
+                    <input type="number" class="input" name="price" id="price">
+                    <label for="price">Price ($)</label>
+                </div>
+                <div class="category input-field">
+                    <textarea name="description" class="input" id="description" cols="30" rows="10" ></textarea>
+                    <label for="description">Description</label>
+                 </div>
+                <div class="category input-field">
+                   <select name="pet_category" id="pet_category">
+                        <option selected disabled value="">Choose a Category</option>
+                        {% for category in categories %}
+                        <option value="{{category.id}}">{{ category.category }}</option>
+                        {% endfor %}
+                   </select>
+                    <label for="pet_category">Category</label>
+                </div>
+                <div class="input-field">
+                    <input type="submit" class="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- End Create pet from section -->
+
+
+<!-- All Available pet section-->
+<section class="pet-disp">
+    <div class="">
+        <header>Available Pets for you</header>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            {% for pet in pets %}
+            <div class="col">
+                <div class="img">
+                    <a href="{% url 'pet_page' pet.id %}"><img width="300px" src="{{pet.url}}" alt=""></a>
+                </div>
+                <h5>Name: <span>{{pet.petname}}</span></h5>
+                <ul>
+                    <li>Breed: <span>{{pet.breed}}</span></li>
+                    <li>Price: <span>${{pet.price}}</span></li>
+                </ul>
+            </div>
+            {% endfor%}
+        </div>
+    </div>
+
+</section>
+<!-- End Available pet section -->
+{% endblock %}

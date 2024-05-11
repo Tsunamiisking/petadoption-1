@@ -28,14 +28,14 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active mx-lg-2" aria-current="page" href="{% url 'index' %}">Home</a>
+                            <a class="nav-link      mx-lg-2" aria-current="page" href="{% url 'index' %}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="#">Contact Us</a>
+                            <a class="nav-link mx-lg-2" href="{% url 'contact_us' %}">Contact Us</a>
                         </li>
                         {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="#">Markretplace</a>
+                            <a class="nav-link mx-lg-2" href="{% url 'marketplace' %}">Marketplace</a>
                         </li>
                         {% endif %}
                         <!-- <li class="nav-item">
@@ -47,19 +47,19 @@
                                 Pet Categories
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Dog</a></li>
-                                <li><a class="dropdown-item" href="#">Cats</a></li>
-                                <!-- <li>
-                      <hr class="dropdown-divider">
-                    </li> -->
-                                <li><a class="dropdown-item" href="#">Rabbit</a></li>
-                                <li><a class="dropdown-item" href="#">Birds</a></li>
+                                {% for category in categories %}
+                                    <li><a class="dropdown-item" href="{% url 'category_disp' category.id %}">{{category.category}}</a></li>      
+                                {% endfor %}                                
                             </ul>
                         </li>
                     </ul>
                 </div>
             </div>
-            <a href="{% url 'login' %}" class="login-button">Login</a>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="login-button">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="login-button">Login</a>
+            {% endif %}
             <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -70,49 +70,6 @@
 
     {% block body %}
     {%endblock%}
-
-        <div class="">
-            <div class="footer d-flex flex-row justify-content-between align-items-center">               
-                <div class="">
-                    <a class="navbar-brand me-auto" href="{% url 'index' %}"><img width="120px"
-                            src="{% static 'petadoption1/logowhite1.png' %}" alt="logo"></a>
-                </div>
-                <div class="categories">
-                        <h4>Categories</h4>
-                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                            <li>Dog</li>
-                            <li>Cat</li>
-                            <li>Rabbit</li>
-                            <li>Goat</li>
-                        </ul>
-                </div>
-
-                <div class="">
-                    <h4>Social media</h4>
-                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                        <li><img width="20px" src="{% static 'petadoption1/facebook.png' %}" alt=""> Facebook</li>
-                        <li><img width="20px" src="{% static 'petadoption1/whatsapp.png' %}" alt=""> Whatsapp</li>
-                        <li><img width="20px" src="{% static 'petadoption1/twitter.png' %}" alt=""> X Formerly Twitter</li>
-                        <li><img width="20px" src="{% static 'petadoption1/ig.png' %}" alt=""> Instagram</li>
-                    </ul>
-                </div>
-                <div class="">
-                        <h4>Contact Us</h4>
-                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                            <li>info@gmail.com</li>
-                            <li>support@gmail.com</li>
-                            <li><hr></li>
-                            <li>
-                                <form class="form-floating">
-                                    <input type="email" class="news-letter form-control form-control-sm" id="floatingInputValue" placeholder="Newsletter">
-                                    <label for="floatingInputValue">Newsletter</label>
-                                </form>
-                            </li>
-                        </ul>
-                </div>
-            </div>
-        </div>
-
     <script src="{% static 'petadoption1/app.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

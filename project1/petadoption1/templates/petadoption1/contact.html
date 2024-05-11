@@ -1,0 +1,117 @@
+{% extends 'petadoption1/layout.html' %}
+{% load static %}
+
+{% block body %}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container d-flex align-items-center justify-content-center fs-1 text-white flex-column">
+      <h1> Our team of dedicated professionals is committed to providing you with personalized support every step of the way. 🐾 </h1>
+      <p>Here, you'll find a loving community dedicated to connecting adorable pets with caring owners like you. Whether
+        you're looking to give a furry friend a forever home or seeking a new addition to your family, we're here to help
+        make the process easy and enjoyable. Browse through our extensive listings of pets available for adoption or sale,
+        and discover your perfect match.</p>
+    </div>
+  </section>
+  <!-- End Hero section -->
+
+
+
+
+
+<section class="contact_us">
+    <div class="container">
+        <div class="text">
+            <header>
+                We would love to hear from you!
+            </header>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form action="" method="post">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="First name">
+                      </div>
+                      <div class="mb-3">
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Last name">
+                      </div>
+                      <div class="mb-3">
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                      </div>
+                      <div class="mb-3">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      </div>
+                      <div class="input-field">
+                        <input type="submit" class="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+            <div class="col">
+                <h5>
+                    Get in touch
+                </h5>
+                <p>
+                    Call us: +18187882*** 
+                </p>
+                <p>
+                    Whatsapp: +1 (832) 677‑4396
+                </p>
+                <p>
+                    Write to us: info@bouchardmetalmasters.online
+                </p>
+                <p>
+                    Career inquiries: support@bouchardmetalmasters.online
+
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer Section -->
+<div class="">
+    <div class="footer d-flex flex-row justify-content-between align-items-center">
+      <div class="">
+        <a class="navbar-brand me-auto" href="{% url 'index' %}"><img width="120px"
+            src="{% static 'petadoption1/logowhite1.png' %}" alt="logo"></a>
+      </div>
+      <div class="categories">
+        <h4>Categories</h4>
+        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+          {% for category in categories %}
+          <li>{{category.category}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+  
+      <div class="">
+        <h4>Social media</h4>
+        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+          <li><img width="20px" src="{% static 'petadoption1/facebook.png' %}" alt=""> Facebook</li>
+          <li><img width="20px" src="{% static 'petadoption1/whatsapp.png' %}" alt=""> Whatsapp</li>
+          <li><img width="20px" src="{% static 'petadoption1/twitter.png' %}" alt=""> X Formerly Twitter</li>
+          <li><img width="20px" src="{% static 'petadoption1/ig.png' %}" alt=""> Instagram</li>
+        </ul>
+      </div>
+      <div class="">
+        <h4>Contact Us</h4>
+        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+          <li>info@gmail.com</li>
+          <li>support@gmail.com</li>
+          <li>
+            <hr>
+          </li>
+          <li>
+            <form class="form-floating">
+              <input type="email" class="news-letter form-control form-control-sm" id="floatingInputValue"
+                placeholder="Newsletter">
+              <label for="floatingInputValue">Newsletter</label>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End Footer Section  -->
+{% endblock %}

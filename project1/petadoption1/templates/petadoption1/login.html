@@ -2,15 +2,23 @@
 {% load static %}
 
 {% block body %}
+
+<!-- Space -->
+<section class="space">
+    
+</section>
+<!-- Space End -->
+
 <section class="wrapper">
     <div class="container main">
         <div class="row">
-            <div class="col-md-6 side-image">
+            <div class="col-md-6 side-image-login">
 
                 <h3 class="text">Welcome Back!</h3>
             </div>
             <div class="col-md-6 right">
-                <form>
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
                     <div class="input-box">
                         <header>Login</header>
                     </div>
@@ -23,12 +31,11 @@
                         <label for="password">Password</label>
                     </div>
                     <div class="input-field">
-                        <input type="submit" class="submit" value="Sign Up">
+                        <input type="submit" class="submit" value="Login">
                     </div>
 
                     <div class="login">
                         <span>Create an account <a href="{% url 'signup' %}">Here!</a></span>
-
                     </div>
                 </form>
             </div>

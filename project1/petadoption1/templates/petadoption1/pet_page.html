@@ -1,0 +1,91 @@
+{% extends 'petadoption1/layout.html' %}
+{% load static %}
+
+{% block body%}
+    <!-- Page Page section -->
+    <section class="pet_page">
+        <div class="img">
+            <img width="500px" src="{{pet.url}}" alt="">
+        </div>
+        <h5>Name: <span>{{pet.petname}}</span></h5>
+        <p>Category <span>{{pet.pet_category}}</span></p>
+        <p>Breed: <span>{{pet.breed}}</span></p>
+        <p>Price: <span>${{pet.price}}</span></p>
+
+        <p>Description: <span>{{ pet.description}}</span></p>
+    </section>
+    <!-- End main pet page section -->
+
+
+    <!-- Comment form Section -->
+    {% if request.user.is_authenticated %}
+    <section class="comments">
+        <form action="{% url 'newcomment' pet_id=pet.id %}" method="post">
+            {% csrf_token %}
+            <div class="category input-field">
+                <textarea name="comment_text" class="input" id="comment_text" cols="30" rows="10" ></textarea>
+                <label for="comment_text">Comment on this pet</label>
+             </div>
+             <div class="input-field">
+                <input type="submit" class="submit" value="Submit">
+            </div>
+        </form>
+    </section>
+    <!-- End Comment form Section -->
+
+    <!-- Comment Display Section -->
+    {% if comments %}
+        <section class="comment-disp">
+            <h1><span>Comments</span></h1>
+                {% for comment in comments %}
+                <div class="container">
+                <div class="top">
+                    <h5>{{comment.user}}</h5>
+                    <p>{{comment.date}}</p>
+                </div>
+                    <div class="bottom">
+                        <p>
+                            {{comment.comment_text}}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+        </section>
+        {% else %}
+            <section class="comment-disp">
+                <div class="container">
+                    <div class="top">
+                        <h5>No comments</h5>
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+    {% endif %}
+
+    <!-- End Comment Display Section -->
+
+
+
+    
+
+    <!-- More Like This Section -->
+    <section class="more-like-this">
+        <h1>More Like <span>{{pet.petname}}</span></h1>
+    <div class="container">
+      <div class="row">
+        {% for pet in more_like_this %}
+        <div class="col">
+          <div class="img"><a href="{% url 'pet_page' pet.id %}"><img width="300px" src="{{pet.url}}" alt=""></a>
+          </div>
+          <h5>Name: <span>{{pet.petname}}</span></h5>
+          <ul>
+            <li>Owners Description: <span>{{pet.description}}</span></li>
+          </ul>
+        </div>
+        {% endfor%}
+      </div>
+    </div>
+    </section>
+
+    <!-- End More Like this Section  -->
+{% endblock %}
