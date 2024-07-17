@@ -73,7 +73,7 @@ span{
 
 }
 
-.hero-section::before{
+/* .hero-section::before{
     background-color: rgba(0, 0, 0, 0.6);
     content: "";
     position: absolute;
@@ -82,10 +82,10 @@ span{
     left: 0;
     right: 0;
 
-}
+} */
 
 .hero-section .container {
-    height: 100vh;
+    height: 120vh;
     z-index: 1;
     position: relative;
 }
@@ -93,7 +93,9 @@ span{
 .hero-section h1{
     font-size: 1.5em;
     text-align: center;
-    margin: 30px 0;
+    /* margin: 30px 0; */
+    margin-bottom: 30px;
+    margin-top: 70px;
 }
 
 .hero-section p{
@@ -521,7 +523,7 @@ span a:hover{
     justify-content: center;
 }
 .our-team .col{
-    margin: 20px 20px;
+    margin: 20px 10px;
 }
 .our-team .img{
     border-radius: 50%;
@@ -597,9 +599,9 @@ span a:hover{
         height: 120vh;
     }
     
-    .featured {
+    /* .featured {
         
-    }
+    } */
     
 }
 
@@ -611,7 +613,6 @@ span a:hover{
     margin: 30px 0;
     padding: 20px;
 }
-
 .space {
     height: 20vh;
 }
